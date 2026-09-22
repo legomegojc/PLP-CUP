@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OBS Overlay Controller</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="wrap">
+  <section class="panel">
+    <h1>試合オーバーレイ操作</h1>
+    <div class="grid">
+      <div class="field">
+        <label>左 SET SCORE</label>
+        <div class="step">
+          <button data-step="leftScore" data-delta="-1">−</button>
+          <output id="leftScoreOut">0</output>
+          <button data-step="leftScore" data-delta="1">＋</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>右 SET SCORE</label>
+        <div class="step">
+          <button data-step="rightScore" data-delta="-1">−</button>
+          <output id="rightScoreOut">0</output>
+          <button data-step="rightScore" data-delta="1">＋</button>
+        </div>
+      </div>
+
+      <div class="field"><label>ROUND</label>
+        <div class="step">
+          <button data-step="round" data-delta="-1">−</button>
+          <output id="roundOut">1</output>
+          <button data-step="round" data-delta="1">＋</button>
+        </div>
+      </div>
+
+      <div class="field"><label>GAME</label>
+        <div class="step">
+          <button data-step="game" data-delta="-1">−</button>
+          <output id="gameOut">1</output>
+          <button data-step="game" data-delta="1">＋</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="leftCode">左 ユニットコード</label>
+        <input id="leftCode" type="text" placeholder="自由入力">
+      </div>
+
+      <div class="field">
+        <label for="rightCode">右 ユニットコード</label>
+        <input id="rightCode" type="text" placeholder="自由入力">
+      </div>
+
+      <div class="field">
+        <label for="leftRule">左 ユニットルール</label>
+        <select id="leftRule"><option>ガチエリア</option>
+          <option>ガチヤグラ</option><option>ガチホコ</option><option>ガチアサリ</option>
+        </select>
+      </div>
+
+
+
+      <div class="field">
+        <label for="rightRule">右 ユニットルール</label>
+        <select id="rightRule">
+          <option>ガチエリア</option>
+          <option>ガチヤグラ</option><option>ガチホコ</option><option>ガチアサリ</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="reset" class="reset">すべてリセット</button>
+
+  </section>
+  <section class="preview-section">
+    <h2>リアルタイムプレビュー</h2>
+    <div class="preview-scale">
+      <iframe id="preview" src="overlay.html" title="overlay preview">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="help">
+    <h2>OBSでの使用</h2>
+    <p>OBSの「ブラウザ」ソースで <b>overlay.html</b> を読み込み、幅1280・高さ720に設定してください。背景画像をOBS側で別ソースにする場合は、overlay.html内の <code>show-background</code> クラスを外してください。</p></section>
+</main>
+<script src="app.js"></script>
+</body></html>
