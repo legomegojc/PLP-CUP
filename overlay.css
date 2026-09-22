@@ -1,0 +1,112 @@
+/* OBS canvas */
+html,
+body {
+  margin: 0;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.overlay {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  background: transparent;
+}
+
+.overlay.show-background {
+  background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1280px 720px;
+}
+
+/* Shared text style */
+.value {
+  position: absolute;
+  color: #fff;
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================
+   SET SCORE : 0 - 0
+   ========================= */
+.score-wrap {
+  position: absolute;
+  left: 25px;
+  top: 190px;
+  width: 210px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  color: #fff;
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+}
+
+.score-number {
+  width: 42px;
+  text-align: center;
+}
+
+.score-separator {
+  width: 20px;
+  text-align: center;
+}
+
+/* Left team */
+.left-code {
+  left: 40px;
+  top: 590px;
+  width: 305px;
+  font-size: 24px;
+}
+
+.left-rule {
+  left: 110px;
+  top: 665px;
+  width: 235px;
+  font-size: 18px;
+}
+
+/* Right team */
+.right-code {
+  left: 1000px;
+  top: 590px;
+  width: 305px;
+  font-size: 24px;
+}
+
+.right-rule {
+  left: 1055px;
+  top: 665px;
+  width: 240px;
+  font-size: 18px;
+}
+
+/* Round / Game */
+.round {
+  left: 495px;
+  top: 610px;
+  width: 125px;
+  font-size: 34px;
+}
+
+.game {
+  left: 670px;
+  top: 610px;
+  width: 125px;
+  font-size: 34px;
+}
