@@ -1,6 +1,3 @@
-/* =========================
-   Base
-   ========================= */
 * {
   box-sizing: border-box;
 }
@@ -24,9 +21,6 @@ select {
   font: inherit;
 }
 
-/* =========================
-   Layout
-   ========================= */
 .wrap {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
@@ -49,17 +43,75 @@ h2 {
   line-height: 1.25;
 }
 
-h1 {
-  font-size: 28px;
+h1 { font-size: 28px; }
+h2 { font-size: 20px; }
+
+.auth-box {
+  margin-bottom: 18px;
+  padding: 16px;
+  background: #111620;
+  border: 1px solid #364154;
+  border-radius: 12px;
 }
 
-h2 {
-  font-size: 20px;
+.auth-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-/* =========================
-   Controller grid
-   ========================= */
+.auth-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #8bdde8;
+  font-weight: 700;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.auth-actions button,
+.reset {
+  padding: 11px 20px;
+  cursor: pointer;
+  color: #102027;
+  background: #65d1dd;
+  border: 0;
+  border-radius: 9px;
+  font-weight: 800;
+}
+
+.auth-actions button.secondary {
+  color: #eef7fb;
+  background: #364154;
+}
+
+.status {
+  overflow-wrap: anywhere;
+  color: #c7d2df;
+}
+
+.room-line {
+  margin: 0 0 16px;
+  color: #c7d2df;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset:disabled {
+  opacity: 0.58;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -78,8 +130,8 @@ h2 {
 }
 
 .field label {
-  font-weight: 700;
   color: #8bdde8;
+  font-weight: 700;
 }
 
 input,
@@ -100,9 +152,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(101, 209, 221, 0.14);
 }
 
-/* =========================
-   +/- controls
-   ========================= */
 .step {
   display: grid;
   grid-template-columns: 52px minmax(70px, 1fr) 52px;
@@ -121,13 +170,8 @@ select:focus {
   font-weight: 800;
 }
 
-.step button:hover {
-  filter: brightness(1.08);
-}
-
-.step button:active {
-  transform: translateY(1px);
-}
+.step button:hover { filter: brightness(1.08); }
+.step button:active { transform: translateY(1px); }
 
 .step output {
   min-height: 44px;
@@ -145,35 +189,35 @@ select:focus {
 
 .reset {
   margin-top: 20px;
-  padding: 11px 20px;
-  cursor: pointer;
-  color: #102027;
-  background: #65d1dd;
-  border: 0;
-  border-radius: 9px;
-  font-weight: 800;
 }
 
-/* =========================
-   Preview
-   ========================= */
+.save-status {
+  min-height: 24px;
+  margin: 14px 0 0;
+  color: #8bdde8;
+}
+
+.save-status.error {
+  color: #ff9ea7;
+}
+
 .preview-scale {
   width: 100%;
-    max-width: 1088px;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    margin: 0 auto;
-    background: #000000;
-    border-radius: 10px;
+  max-width: 1088px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 10px;
 }
 
 .preview-scale iframe {
   display: block;
-      width: 1280px;
-      height: 720px;
-      border: 0;
-      transform: scale(0.85);
-      transform-origin: top left;
+  width: 1280px;
+  height: 720px;
+  border: 0;
+  transform: scale(0.85);
+  transform-origin: top left;
 }
 
 .help p {
@@ -185,11 +229,9 @@ select:focus {
   padding: 2px 6px;
   background: #0f141c;
   border-radius: 5px;
+  overflow-wrap: anywhere;
 }
 
-/* =========================
-   Responsive
-   ========================= */
 @media (max-width: 760px) {
   .wrap {
     width: min(100% - 20px, 1180px);
@@ -202,11 +244,25 @@ select:focus {
     padding: 16px;
   }
 
-  .grid {
+  .grid,
+  .auth-fields {
     grid-template-columns: 1fr;
   }
 
+  .auth-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .preview-section {
+    overflow-x: auto;
+  }
+
+  .preview-scale {
+    min-width: 704px;
+  }
+
   .preview-scale iframe {
-    transform: scale(calc((100vw - 54px) / 1280));
+    transform: scale(0.55);
   }
 }
