@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomId": {
+        ".read": true,
+        ".write": "auth != null",
+        "state": {
+          ".validate": "newData.hasChildren(['leftScore', 'rightScore', 'round', 'game', 'leftCode', 'leftRule', 'rightCode', 'rightRule'])",
+          "leftScore": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+          "rightScore": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+          "round": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+          "game": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+          "leftCode": { ".validate": "newData.isString() && newData.val().length <= 30" },
+          "rightCode": { ".validate": "newData.isString() && newData.val().length <= 30" },
+          "leftRule": { ".validate": "newData.val() == 'ガチエリア' || newData.val() == 'ガチヤグラ' || newData.val() == 'ガチホコ' || newData.val() == 'ガチアサリ'" },
+          "rightRule": { ".validate": "newData.val() == 'ガチエリア' || newData.val() == 'ガチヤグラ' || newData.val() == 'ガチホコ' || newData.val() == 'ガチアサリ'" },
+          "$other": { ".validate": false }
+        },
+        "$other": { ".validate": false }
+      }
+    },
+    "$other": { ".validate": false }
+  }
+}
