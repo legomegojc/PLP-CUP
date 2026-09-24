@@ -61,6 +61,16 @@ function startOverlay() {
   const overlay = document.getElementById("overlay");
   if (params.get("preview") === "1") {
     overlay.classList.add("show-background");
+
+    // iframeの大きさに合わせ、1280×720全体を縦横比を保ったまま縮小する。
+    const fitPreview = () => {
+      const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+      overlay.style.transformOrigin = "top left";
+      overlay.style.transform = `scale(${scale})`;
+    };
+
+    fitPreview();
+    window.addEventListener("resize", fitPreview);
   }
 
   const ids = {
